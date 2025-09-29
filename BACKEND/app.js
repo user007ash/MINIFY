@@ -2,12 +2,13 @@ import express from "express";
 import dotenv from "dotenv";
 import connectDB from "./src/config/mongo.config.js";
 import shortUrl from "./src/routes/shortUrl.route.js";
-import urlSchema from "./src/models/shortUrlSchema.js";
 import { redirectFromShortUrl } from "./src/controller/shortUrl.controller.js";
 import { errorHandler } from "./src/utils/errorHandler.js";
+import cors from "cors";
 
 dotenv.config({ quiet: true });
 const app = express();
+app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
