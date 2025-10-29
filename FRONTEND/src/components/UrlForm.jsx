@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 
+const API_BASE_URL = import.meta.env.VITE_API_URL;
+
 const UrlForm = () => {
   const [url, setUrl] = useState("");
   const [shortUrl, setShortUrl] = useState("");
@@ -13,7 +15,7 @@ const UrlForm = () => {
     setShortUrl("");
     setCopied(false);
     try {
-      const { data } = await axios.post("/api/create", { url });
+      const { data } = await axios.post(`${API_BASE_URL}/api/create`, { url });
       setShortUrl(data);
     } catch (err) {
       setShortUrl("");
