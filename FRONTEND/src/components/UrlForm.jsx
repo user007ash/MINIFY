@@ -17,6 +17,7 @@ const UrlForm = () => {
       setShortUrl(data);
     } catch (err) {
       setShortUrl("");
+      console.error("Error creating short URL:", err);
     }
     setLoading(false);
   };
@@ -29,6 +30,7 @@ const UrlForm = () => {
         setTimeout(() => setCopied(false), 2000);
       } catch (err) {
         setCopied(false);
+        console.error("Failed to copy text: ", err);
       }
     }
   };
