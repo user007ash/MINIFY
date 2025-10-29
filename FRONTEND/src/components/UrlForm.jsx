@@ -15,7 +15,7 @@ const UrlForm = () => {
     setShortUrl("");
     setCopied(false);
     try {
-      const { data } = await axios.post(`${API_BASE_URL}/api/create`, { url });
+      const { data } = await axios.post(`${API_BASE_URL}/api/create/`, { url });
       setShortUrl(data);
     } catch (err) {
       setShortUrl("");
